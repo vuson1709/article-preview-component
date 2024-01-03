@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+:root {
+  /* headline */
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  /* button */
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  /* p */
+  --grayish-blue: hsl(212, 23%, 69%);
+  /* bg */
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+}
+
+body {
+  background-color: var(--light-grayish-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h2 {
+  color: var(--very-dark-grayish-blue);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+p {
+  color: var(--grayish-blue);
+}
+
+.article {
+  width: 730px;
+  height: 280px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 8px 20px 20px 10px hsla(212, 23%, 69%, 0.1);
+}
+
+.drawers {
+  max-width: 100%;
+  display: block;
+}
+
+.drawers img {
+  width: 285px;
+  height: 280px;
+  object-fit: cover;
+  object-position: left;
+  filter: brightness(1.05);
+  border-radius: 10px 0 0 10px;
+}
+
+.text-content {
+  padding: 35px;
+}
+
+.text-content > p {
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.author {
+  flex-grow: 1;
+}
+
+.author-name {
+  color: var(--very-dark-grayish-blue);
+  font-weight: 700;
+}
+
+.article-date {
+  opacity: 0.7;
+}
+
+.btn-share {
+  background-color: var(--light-grayish-blue);
+  border: unset;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn-share:hover {
+  background-color: var(--grayish-blue);
+}
+.icon-share:hover {
+  filter: brightness(100);
+}
+
+/* Create rectangle thinking box */
+.box {
+  width: 250px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 20px 10px;
+  color: var(--grayish-blue);
+  background-color: var(--very-dark-grayish-blue);
+  border-radius: 10px;
+  position: absolute;
+  top: -80px;
+  left: -115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.box::before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid var(--very-dark-grayish-blue);
+  right: 45%;
+  bottom: -19px;
+}
