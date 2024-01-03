@@ -28,6 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 375px;
 }
 
 h2 {
@@ -216,7 +217,19 @@ p {
     margin-bottom: 35px;
   }
 
-  .social {
-    flex-grow: 1;
+  .box {
+    display: flex;
+    width: 337.5px;
+    top: -3px;
+    left: -283px;
+    height: 65px;
+  }
+
+  .box span {
+    margin-bottom: 0;
+  }
+
+  .box::before {
+    border: unset;
   }
 }
