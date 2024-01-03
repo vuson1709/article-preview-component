@@ -17,10 +17,23 @@ import IconShare from "./images/icon-share.svg";
 import IconFacebook from "./images/icon-facebook.svg";
 import IconPinterest from "./images/icon-pinterest.svg";
 import IconTwitter from "./images/icon-twitter.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Article() {
   const [isClick, setIsClick] = useState(false);
+  const [widthScreen, setWidthScreen] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const callback = () => setWidthScreen(window.innerWidth);
+
+    window.addEventListener("resize", callback);
+
+    return () => window.removeEventListener("resize", callback);
+  }, []);
+
+  function handleIsClick() {
+    if (widthScreen > 375) setIsClick((is) => !is);
+  }
 
   return (
     <article className="article">
@@ -48,8 +61,8 @@ export default function Article() {
             <p className="author-name">Michelle Appleton</p>
             <p className="article-date">28 Jun 2020</p>
           </div>
-          <button className="btn-share" onClick={() => setIsClick((is) => !is)}>
-            {isClick && (
+          <button className="btn-share" onClick={handleIsClick}>
+            {isClick && widthScreen > 375 && (
               <div className="box">
                 <span>Share</span>
                 <a
