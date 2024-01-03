@@ -1,6 +1,6 @@
 /*
 Your challenge is to build out this article preview component and get it looking as close to the design as possible.
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+
 The only JavaScript you'll need for this challenge is to initiate the share options when someone clicks the share icon.
 
 Your users should be able to: 
@@ -17,8 +17,11 @@ import IconShare from "./images/icon-share.svg";
 import IconFacebook from "./images/icon-facebook.svg";
 import IconPinterest from "./images/icon-pinterest.svg";
 import IconTwitter from "./images/icon-twitter.svg";
+import { useState } from "react";
 
 export default function Article() {
+  const [isClick, setIsClick] = useState(false);
+
   return (
     <article className="article">
       <div className="drawers">
@@ -45,13 +48,33 @@ export default function Article() {
             <p className="author-name">Michelle Appleton</p>
             <p className="article-date">28 Jun 2020</p>
           </div>
-          <button className="btn-share">
-            <div className="box">
-              <span>Share</span>
-              <img src={IconFacebook} alt="Icon Facebook" />
-              <img src={IconTwitter} alt="Icon Twitter" />
-              <img src={IconPinterest} alt="Icon Pinterest" />
-            </div>
+          <button className="btn-share" onClick={() => setIsClick((is) => !is)}>
+            {isClick && (
+              <div className="box">
+                <span>Share</span>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={IconFacebook} alt="Icon Facebook" />
+                </a>
+                <a
+                  href="https://www.twitter.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={IconTwitter} alt="Icon Twitter" />
+                </a>
+                <a
+                  href="https://www.pinterest.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={IconPinterest} alt="Icon Pinterest" />
+                </a>
+              </div>
+            )}
             <img src={IconShare} alt="Icon Share" className="icon-share" />
           </button>
         </div>
